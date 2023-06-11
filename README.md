@@ -3,4 +3,4 @@ Showcase Agrimetal company  full responsive site. Realized in ReactJS, Javascrip
 
 The site is deployed yet and can be visualized at this url: https://agrimetalwebsite.netlify.app/
 
-![image](https://github.com/stefanopedicinogit/AgrimetalWebsite/assets/83118026/62b8228e-de4d-4c59-b936-e3e8ea61ef94)
+![image](https://github.com/stefanopedicinogit/AgrimetalWebsite/assets/83118026/143ae63f-e915-4b91-bab1-e72b4e7377b3)
