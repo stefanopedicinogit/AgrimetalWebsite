@@ -1,2 +1,2 @@
 # AgrimetalWebsite
-Showcase site Agrimetal company. Realized in NextJS and Javascript
+Showcase Agrimetal company  full responsive site. Realized in ReactJS, Javascript, HTML, CSS.
