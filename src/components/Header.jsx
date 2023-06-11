@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from '@material-ui/core';
-import { useRouter } from 'next/router';
+import { useLocation } from 'react-router-dom';
 
 const Topbar = ({ style }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,13 +51,13 @@ const Topbar = ({ style }) => {
           </div>
           <div className="col-lg-3">
             <div className="d-flex align-items-center justify-content-end">
-              <a className="btn btn-primary btn-square rounded-circle me-2" href="#">
-                <i className="fab fa-twitter"></i>
+              <a className="btn btn-primary btn-square rounded-circle me-2" href="/contact">
+                <i className="fas fa-envelope"></i>
               </a>
-              <a className="btn btn-primary btn-square rounded-circle me-2" href="#">
+              <a className="btn btn-primary btn-square rounded-circle me-2" href="https://www.facebook.com/AGRIMETAL21">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a className="btn btn-primary btn-square rounded-circle" href="#">
+              <a className="btn btn-primary btn-square rounded-circle" href="https://www.instagram.com/agrimetal_/?igshid=NTc4MTIwNjQ2YQ%3D%3D">
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
@@ -69,7 +69,7 @@ const Topbar = ({ style }) => {
 };
 
 const Navbar = () => {
-  const router = useRouter();
+  const location = useLocation();
 
   return (
     <nav className="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5 position-fixed w-100">
@@ -88,16 +88,16 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav mx-auto py-0">
-          <a href="/" className={`nav-item nav-link${router.pathname === '/' ? ' active' : ''}`}>
+          <a href="/" className={`nav-item nav-link${location.pathname === '/' ? ' active' : ''}`}>
             Home
           </a>
-          <a href="/about" className={`nav-item nav-link${router.pathname === '/about' ? ' active' : ''}`}>
+          <a href="/about" className={`nav-item nav-link${location.pathname === '/about' ? ' active' : ''}`}>
             About
           </a>
-          <a href="/gallery" className={`nav-item nav-link${router.pathname === '/gallery' ? ' active' : ''}`}>
+          <a href="/gallery" className={`nav-item nav-link${location.pathname === '/gallery' ? ' active' : ''}`}>
             Gallery
           </a>
-          <a href="/contact" className={`nav-item nav-link${router.pathname === '/contact' ? ' active' : ''}`}>
+          <a href="/contact" className={`nav-item nav-link${location.pathname === '/contact' ? ' active' : ''}`}>
             Contact
           </a>
         </div>
@@ -107,6 +107,8 @@ const Navbar = () => {
 };
 
 const NavbarToggle = ({ isNavOpen, toggleNav }) => {
+  const location = useLocation();
+
   return (
     <nav style={{ top: '0' }} className="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5 position-fixed w-100 d-lg-none">
       <a href="index.html" className="navbar-brand">
@@ -126,16 +128,16 @@ const NavbarToggle = ({ isNavOpen, toggleNav }) => {
           }`}
       >
         <div className="navbar-nav mx-auto py-0">
-          <a href="/" className="nav-item nav-link active">
+        <a href="/" className={`nav-item nav-link${location.pathname === '/' ? ' active' : ''}`}>
             Home
           </a>
-          <a href="/about" className="nav-item nav-link">
+          <a href="/about" className={`nav-item nav-link${location.pathname === '/about' ? ' active' : ''}`}>
             About
           </a>
-          <a href="/gallery" className="nav-item nav-link">
+          <a href="/gallery" className={`nav-item nav-link${location.pathname === '/gallery' ? ' active' : ''}`}>
             Gallery
           </a>
-          <a href="/contact" className="nav-item nav-link">
+          <a href="/contact" className={`nav-item nav-link${location.pathname === '/contact' ? ' active' : ''}`}>
             Contact
           </a>
         </div>

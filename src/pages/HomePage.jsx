@@ -1,29 +1,27 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import SlideGallery from '@/components/SlideGallery'
+import Footer from '../components/Footer';
+import SlideGallery from '../components/SlideGallery'
 import React, { useState, useEffect } from 'react';
 
 const HomePage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        const fetchImages = async () => {
-          const response = await fetch('/api/images');
-          const data = await response.json();
-          const images = data.map((image, index) => ({
-            imageUrl: `/foto/${index}.jpg`,
-            caption: image.caption,
-          }));
-          setImages(images);
-        };
-    
-        fetchImages();
+        const list = [];
+
+        for (let i = 0; i < 14; i++) {
+          list.push({
+            imageUrl: `/foto/${i}.jpg`,
+            caption: `${i}.jpg`
+          });
+        }
+        
+        console.log(list);
+        setImages(list);
       }, []);
       
     return (
         // <!-- Carousel Start -->
         <>
-        <Header></Header>
             <div className="container-fluid p-0 mt-5">
                 <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-inner">
@@ -89,7 +87,7 @@ const HomePage = () => {
                     <div className="row gx-5">
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <div className="d-flex h-100 border border-5 border-primary border-bottom-0 pt-4">
-                                <img className="img-fluid mt-auto mx-auto" src="img/about.png" />
+                                <img style={{marginTop:'-4%'}} className="img-fluid mx-auto" src="stef-img/ste.jpg" alt="owner" />
                             </div>
                         </div>
                         <div className="col-lg-6 pb-5">

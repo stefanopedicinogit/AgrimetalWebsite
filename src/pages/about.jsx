@@ -1,12 +1,10 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
 import React from 'react'
+import Footer from '../components/Footer'
 
 const About = () => {
   return (
     <>
-    <Header></Header>
-     {/* <!-- Hero Start --> */}
+    {/* <!-- Hero Start --> */}
     <div className="container-fluid bg-primary py-5 bg-hero mb-5">
         <div className="container py-5">
             <div className="row justify-content-start">
@@ -27,7 +25,7 @@ const About = () => {
             <div className="row gx-5">
                 <div className="col-lg-6 mb-5 mb-lg-0">
                     <div className="d-flex h-100 border border-5 border-primary border-bottom-0 pt-4">
-                        <img className="img-fluid mt-auto mx-auto" src="img/about.png"/>
+                        <img style={{marginTop:'-4%'}} className="img-fluid mx-auto" src="stef-img/ste.jpg"/>
                     </div>
                 </div>
                 <div className="col-lg-6 pb-5">

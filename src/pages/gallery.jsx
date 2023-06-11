@@ -1,14 +1,30 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import React, { useState, useCallback } from "react";
-import { useEffect } from "react";
+import Footer from '../components/Footer'
+import React, { useState, useCallback, useEffect } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
 const GalleryPage = () => {
-    const [images, setImages] = useState([])
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const list = [];
+
+        for (let i = 0; i < 14; i++) {
+          list.push({
+            imageUrl: `/foto/${i}.jpg`,
+            caption: `${i}.jpg`
+          });
+        }
+        
+        setImages(list);
+  
+    }, []);
+
+    useEffect(() => {
+        console.log(images);
+    },[])
 
     const openLightbox = useCallback((event, { photo, index }) => {
         setCurrentImage(index);
@@ -20,21 +36,6 @@ const GalleryPage = () => {
         setViewerIsOpen(false);
     };
 
-    useEffect(() => {
-        const fetchImages = async () => {
-            const response = await fetch('/api/images');
-            const data = await response.json();
-            const images = data.map((image, index) => ({
-                imageUrl: `/foto/${index}.jpg`,
-                caption: image.caption,
-            }));
-            setImages(images);
-        };
-
-        fetchImages();
-        console.log(images)
-    }, []);
-
     const resizedImages = images.map(image => ({
         ...image,
         height: 2,
@@ -45,7 +46,6 @@ const GalleryPage = () => {
 
     return (
         <>
-            <Header></Header>
             {/* <!-- Hero Start --> */}
             {/* <div className="container-fluid bg-primary py-5 bg-hero mb-5">
                 <div className="container py-5">
@@ -80,4 +80,4 @@ const GalleryPage = () => {
     )
 }
 
-export default GalleryPage
+export default GalleryPage;
